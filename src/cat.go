@@ -1,4 +1,4 @@
-package cat
+package linuxutils
 
 import (
 	"fmt"
