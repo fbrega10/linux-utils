@@ -2,9 +2,26 @@ package linuxutils
 
 import (
 	"fmt"
-	"io"
 	"os"
+	"io"
 )
+
+func Touch(s string){
+	if len(s) < 1 {
+		fmt.Println("no file name given, could not create anything")
+		os.Exit(1)
+	}
+	os.Create(s)
+	os.Exit(0)
+}
+
+func Rm(file_name string){
+	err := os.Remove(file_name)
+	if err != nil{
+		fmt.Println("could not remove the file named ", file_name)
+		os.Exit(1)
+	}
+}
 
 func Cat(s string) {
 	file, err := os.Open(s)
